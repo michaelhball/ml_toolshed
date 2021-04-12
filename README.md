@@ -16,7 +16,7 @@ that are themselves not well organised.
 
 The AWS notes are mostly snippets or step-by-step instructions for how to repeat the setup of 
 something. The topics are:
-* [increase ec2 storage](https://github.com/michaelhball/ml_tidbits/blob/0450bc2d9830a1846cdaddf992ca4d74c3c62604/ml_eng_tutorials/increase_ec2_storage.md)
+* [increase ec2 storage](ml_eng_tutorials/increase_ec2_storage.md)
 * 
 
 ## Tensorflow
