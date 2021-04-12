@@ -23,7 +23,7 @@ something. The topics are:
 
 Almost all Tensorflow snippets I have here are provided inside the [```tf```](/ml_tidbits/tf) directory. The files I 
 have are as follows:
-* [```callbacks.py```](/ml_tidbits/tf/callbacks.py) contains a collection of training callbacks for use 
+* [```callbacks.py```](ml_tidbits/tf/callbacks.py) contains a collection of training callbacks for use 
 with ```.fit``` function
     * [RestoreBestModel](https://github.com/michaelhball/ml_tidbits/blob/0450bc2d9830a1846cdaddf992ca4d74c3c62604/ml_tidbits/tf/callbacks.py#L4-L26)
     *  
@@ -32,9 +32,15 @@ loading/modifying/customizing/converting etc.
 
 ## MLFlow
 
-## Docker
+## Docker(-Compose)
 
 ## Jupyter / Colab
 
 ## Misc.
 
+There are a bunch of other tidbits that don't fit nicely anyway else. These are listed unordered here:
+* [programmatic GPU config & customization](ml_tidbits/gpu.py) for tensorflow, pytorch, etc.
+* [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
+i.e. creating client connection in Python code
+* [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
+i.e. using the above ssh function to copy files from/to some remote machine
