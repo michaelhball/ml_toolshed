@@ -16,8 +16,9 @@ that are themselves not well organised.
 
 The AWS notes are mostly snippets or step-by-step instructions for how to repeat the setup of 
 something. The topics are:
-* [increase ec2 storage](ml_eng_tutorials/increase_ec2_storage.md)
-* 
+* [increase ec2 storage](/ml_eng_tutorials/increase_ec2_storage.md)
+* [ec2 instance setup](/ml_eng_tutorials/ec2_setup.md)
+* [cloudwatch for ec2 setup](/ml_eng_tutorials/cloudwatch.md)
 
 ## Tensorflow
 
@@ -34,11 +35,13 @@ loading/modifying/customizing/converting etc.
 
 ## Docker(-Compose)
 
+* [SSL w. certbot, nginx, & docker-compose](/ml_eng_tutorials/certbot.md)
+
 ## Jupyter / Colab
 
 ## Misc.
 
-There are a bunch of other tidbits that don't fit nicely anyway else. These are listed unordered here:
+And lastly, here's a bunch of useful snippets that don't fit anywhere else
 * [programmatic GPU config & customization](ml_tidbits/gpu.py) for tensorflow, pytorch, etc.
 * [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
 i.e. creating client connection in Python code
