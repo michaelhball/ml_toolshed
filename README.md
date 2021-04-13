@@ -1,11 +1,11 @@
 # ML Toolshed
 
 <p align="center">
-    <img alt="hammer icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/hammer_apple.png" width="64">
-    <img alt="clamp icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/clamp_apple.png" width="64">
-    <img alt="nut & bolt icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/nut_and_bolt_apple.png" width="64">
-    <img alt="wrench icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/wrench_apple.png" width="64">
-    <img alt="microscope icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/microscope_apple.png" width="64">
+    <img alt="hammer icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/hammer_apple.png" width="64" hspace="20">
+    <img alt="clamp icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/clamp_apple.png" width="64" hspace="20">
+    <img alt="nut & bolt icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/nut_and_bolt_apple.png" width="64" hspace="20">
+    <img alt="wrench icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/wrench_apple.png" width="64" hspace="20">
+    <img alt="microscope icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/microscope_apple.png" width="64" hspace="20">
 </p>
 
 <h3 align="center">
@@ -14,7 +14,7 @@
 
 This is my personal wiki for machine learning & engineering related topics: a living 
 document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
-find useful. It also helps me keep it cool.
+find useful. It's also the way I keep my cool. 
 
 ## Overview
 
