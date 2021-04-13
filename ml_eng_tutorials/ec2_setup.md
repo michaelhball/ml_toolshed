@@ -28,5 +28,5 @@ debug...
 
 * If using a server that requires an SSL certificate, follow the instructions in [certbot.md](/ml_eng_tutorials/certbot.md)
 
-* If you want to set up CloudWatch monitoring (e.g. beyond the defaults), follow the instructions in 
+* If you want to set the Cloudwatch Agent for fine-grained system & application monitoring, follow the instructions in 
 [cloudwatch.md](/ml_eng_tutorials/cloudwatch.md)
