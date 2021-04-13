@@ -5,7 +5,7 @@
 </h3>
 
 <h2 align="center">
-🔨🪛🗜️⛏️🔩🔧🔬
+🔨    🗜️    🔩    🔧    🔬
 </h2>
 
 This is my personal wiki for machine learning & engineering related topics: a living 
