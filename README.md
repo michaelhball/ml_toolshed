@@ -14,11 +14,14 @@ that are themselves not well organised.
 
 ## AWS
 
-The AWS notes are mostly snippets or step-by-step instructions for how to repeat the setup of 
-something. The topics are:
+The AWS notes are mostly snippets or step-by-step instructions for how to repeat the setup of something. The topics are:
 * [increase ec2 storage](/ml_eng_tutorials/increase_ec2_storage.md)
-* [ec2 instance setup](/ml_eng_tutorials/ec2_setup.md)
-* [cloudwatch for ec2 setup](/ml_eng_tutorials/cloudwatch.md)
+* [setup ec2 instance](/ml_eng_tutorials/ec2_setup.md)
+* [setup cloudwatch for ec2](/ml_eng_tutorials/cloudwatch.md)
+
+## IAC / CI / CD
+
+
 
 ## Tensorflow
 
@@ -33,11 +36,15 @@ loading/modifying/customizing/converting etc.
 
 ## MLFlow
 
+
+
 ## Docker(-Compose)
 
 * [SSL w. certbot, nginx, & docker-compose](/ml_eng_tutorials/certbot.md)
 
 ## Jupyter / Colab
+
+
 
 ## Misc.
 
