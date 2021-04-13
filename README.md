@@ -9,7 +9,7 @@
 </p>
 
 <h3 align="center">
-<p>Serve with Tensorflow, track with MLFlow, master AWS, & deploy with docker-compose
+<p>Track with MLFlow, serve with Tensorflow, deploy with docker-compose, & master AWS
 </h3>
 
 This is my personal wiki for machine learning & engineering related topics: a living 
