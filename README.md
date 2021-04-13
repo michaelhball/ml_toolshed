@@ -4,9 +4,9 @@
 <p>Serve with Tensorflow, track with MLFlow, master AWS, & deploy with docker-compose.
 </h3>
 
-<h5 align="center">
+<h2 align="center">
 🔨🪛🗜️⛏️🔩🔧🔬
-</h5>
+</h2>
 
 This is my personal wiki for machine learning & engineering related topics: a living 
 document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
