@@ -1,12 +1,12 @@
 # ML Toolshed
 
 <h3 align="center">
-<p>Serve with Tensorflow, track with MLFlow, master AWS, & deploy with docker-compose.
+🔨&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🗜️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔩&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔬
 </h3>
 
-<h2 align="center">
-🔨&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🗜️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔩&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔬
-</h2>
+<h3 align="center">
+<p>Serve with Tensorflow, track with MLFlow, master AWS, & deploy with docker-compose.
+</h3>
 
 This is my personal wiki for machine learning & engineering related topics: a living 
 document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
