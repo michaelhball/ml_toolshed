@@ -1,11 +1,11 @@
 # ML Toolshed
 
 <p align="center">
-    <img alt="GitHub release" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/hammer_apple.png">
-    <img alt="GitHub release" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/clamp_apple.png">
-    <img alt="GitHub release" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/nut_and_bolt_apple.png">
-    <img alt="GitHub release" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/wrench_apple.png">
-    <img alt="GitHub release" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/microscope_apple.png">
+    <img alt="hammer icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/hammer_apple.png" width="32">
+    <img alt="clamp icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/clamp_apple.png" width="32">
+    <img alt="nut & bolt icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/nut_and_bolt_apple.png" width="32">
+    <img alt="wrench icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/wrench_apple.png" width="32">
+    <img alt="microscope icon" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/microscope_apple.png" width="32">
 </p>
 
 <h3 align="center">
