@@ -38,9 +38,9 @@ that usually require me to click through >5 pages of AWS docs. There are 7' (sho
 versions of each note as well as references to various pages of official documentation for 
 further reading. 
 
-* How to [increase EC2 storage](/ml_eng_tutorials/increase_ec2_storage.md)
-* How to [setup an EC2 instance](/ml_eng_tutorials/ec2_setup.md)
-* How to setup the [Cloudwatch Agent for EC2](/ml_eng_tutorials/cloudwatch.md)
+* How to [increase EC2 storage](/tutorials/increase_ec2_storage.md)
+* How to [setup an EC2 instance](/tutorials/ec2_setup.md)
+* How to setup the [Cloudwatch Agent for EC2](/tutorials/cloudwatch.md)
 
 ## CI / CD / IAC
 
@@ -48,7 +48,7 @@ further reading.
 
 ## Docker(-Compose)
 
-* [SSL w. certbot, nginx, & docker-compose](/ml_eng_tutorials/certbot.md)
+* [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
 
 ## Jupyter / Google Colab
 
@@ -58,7 +58,7 @@ further reading.
 
 Some more engineeringy snippets that don't fit elsewhere
 
-* [programmatic GPU config & customization](ml_tidbits/gpu.py) for tensorflow & pytorch.
+* [programmatic GPU config & customization](code/gpu.py) for tensorflow & pytorch.
 * [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
 i.e. creating client connection in Python code
 * [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
@@ -70,11 +70,11 @@ i.e. using the above ssh function to copy files from/to some remote machine
 
 ## Tensorflow
 
-Almost all Tensorflow snippets I have here are provided inside the [```tf```](/ml_tidbits/tf) directory. The files I 
+Almost all Tensorflow snippets I have here are provided inside the [```tf```](/code/tf) directory. The files I 
 have are as follows:
-* [```callbacks.py```](ml_tidbits/tf/callbacks.py) contains a collection of training callbacks for use 
+* [```callbacks.py```](code/tf/callbacks.py) contains a collection of training callbacks for use 
 with ```.fit``` function
     * [RestoreBestModel](https://github.com/michaelhball/ml_tidbits/blob/0450bc2d9830a1846cdaddf992ca4d74c3c62604/ml_tidbits/tf/callbacks.py#L4-L26)
     *  
-* [```models.py```](/ml_tidbits/tf/models.py) contains a collection of utils for model 
+* [```models.py```](/code/tf/models.py) contains a collection of utils for model 
 loading/modifying/customizing/converting etc.

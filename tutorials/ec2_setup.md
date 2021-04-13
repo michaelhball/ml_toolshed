@@ -26,7 +26,7 @@ myself how to install a particular tool. So from now on, I dump it all here.
 * Remember to set appropriate http(s) inbound & outbound rules in the AWS EC2 console! Easy to forget and frustrating to 
 debug...
 
-* If using a server that requires an SSL certificate, follow the instructions in [certbot.md](/ml_eng_tutorials/certbot.md)
+* If using a server that requires an SSL certificate, follow the instructions in [certbot.md](/tutorials/certbot.md)
 
 * If you want to set the Cloudwatch Agent for fine-grained system & application monitoring, follow the instructions in 
-[cloudwatch.md](/ml_eng_tutorials/cloudwatch.md)
+[cloudwatch.md](/tutorials/cloudwatch.md)
