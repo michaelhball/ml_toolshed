@@ -47,8 +47,3 @@ And lastly, here's a bunch of useful snippets that don't fit anywhere else
 i.e. creating client connection in Python code
 * [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
 i.e. using the above ssh function to copy files from/to some remote machine
-
-
-### wantlist
-
-### push notification
