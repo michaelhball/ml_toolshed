@@ -12,13 +12,11 @@
 <p>Serve with Tensorflow, track with MLFlow, master AWS, & deploy with docker-compose.
 </h3>
 
----
-
-## Overview
-
 This is my personal wiki for machine learning & engineering related topics: a living 
 document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
 find useful. It also helps me keep it cool.
+
+## Overview
 
 The project is not intended to be 'run', nor do the various files fit together or 
 function as a cohesive project. Everything just contains useful pieces of code or insight 
