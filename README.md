@@ -6,7 +6,7 @@
 
 This is my personal wiki for machine learning & engineering related topics: a living 
 document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
-find useful. It's also my quest for sanity amidst the chaos of ML engineering. 
+find useful. It also helps me keep it cool.
 
 ## Overview 
 
