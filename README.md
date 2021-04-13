@@ -48,36 +48,3 @@ i.e. creating client connection in Python code
 * [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
 i.e. using the above ssh function to copy files from/to some remote machine
 
-
-<p class="codeblock-label">test.md</p>
-
-```json
-{
-  "id": 14736618,
-  "artist_name": "Kl(aüs)",
-  "release_name": "2",
-  "accept_generic_sleeve": false,
-  "min_media_condition": "VG"
-}
-```
-
-
-```javascript
-{
-  "id": 14736618,
-  "artist_name": "Kl(aüs)",
-  "release_name": "2",
-  "accept_generic_sleeve": false,
-  "min_media_condition": "VG"
-}
-```
-
-```yaml
-{
-  "id": 14736618,
-  "artist_name": "Kl(aüs)",
-  "release_name": "2",
-  "accept_generic_sleeve": false,
-  "min_media_condition": "VG"
-}
-```
