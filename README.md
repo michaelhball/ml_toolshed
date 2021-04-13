@@ -1,29 +1,65 @@
 # ML Tidbits
 
-This is just a project to compile a bunch of useful ML snippets. The project is not intended to be 
-'run', and the various pieces don't necessarily go together. They are reusable pieces of code that 
-I find myself needing over and over again. 
+<h3 align="center">
+<p>How to master AWS, serve models with tensorflow serving, deploy with docker, and much more.
+</h3>
 
-I don't claim that these snippets represent my unique insight and ability. They are a product of my 
-having read countless blogs/forums/implementations and customized things as needed for my own projects 
-(hence my best efforts to attribute inspiration where relevant). This repository is first and foremost 
-a tool-shed for myself, but one in which I hope you'll find something useful.
+This is my personal wiki for machine learning & engineering related topics: a living 
+document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
+find useful. 
 
-This README acts as a table of contents and index, organising & linking to the various files/documents 
-that are themselves not well organised.
+## Overview 
 
-## AWS
+The project is not intended to be 'run', nor do the various files go 'together' as a 
+cohesive project at all. They are just useful pieces of code or insight that I have used on many 
+different projects.
 
-The AWS notes are mostly snippets or step-by-step instructions for how to repeat the setup of something. The topics are:
-* [increase ec2 storage](/ml_eng_tutorials/increase_ec2_storage.md)
-* [setup ec2 instance](/ml_eng_tutorials/ec2_setup.md)
-* [setup cloudwatch for ec2](/ml_eng_tutorials/cloudwatch.md)
+I don't claim that anything in this repository represents my own insight and ability. Everything is 
+merely a product of my having read countless blogs/forums/implementations, customized things as 
+needed for myself, and decided that no one place captured the note I wanted to have next time 
+I returned to repeat a particular task. This repository is first and foremost a tool-shed for myself, 
+but it's one I keep clean in the hopes that you'll find ssomething useful here too.
 
-## IAC / CI / CD
+The files in this project are not well organized, so this README should be used as index and 
+access point from which to access all files. The sections below are ordered alphabetically. 
 
+### AWS
 
+The following notes are my attempt to write practical high-signal documentation for processes 
+that usually require me to click through >5 pages of AWS docs. There are 7' (short) and LP (long) 
+versions of each note as well as references to various pages of official documentation for 
+further reading. 
 
-## Tensorflow
+* [:link:](/ml_eng_tutorials/increase_ec2_storage.md) How to increase EC2 storage
+* [:link:](/ml_eng_tutorials/ec2_setup.md) How to setup an EC2 instance
+* [:link:](/ml_eng_tutorials/cloudwatch.md) How to setup the Cloudwatch Agent for EC2
+
+### CI / CD / IAC
+
+* Deploy to EC2 w. Gitlab CI (incl. Gitlab Container Registry, docker-compose)
+
+### Docker(-Compose)
+
+* [SSL w. certbot, nginx, & docker-compose](/ml_eng_tutorials/certbot.md)
+
+### Jupyter / Google Colab
+
+*  
+
+### Misc.
+
+And lastly, here's a bunch of useful snippets that don't fit anywhere else
+* [programmatic GPU config & customization](ml_tidbits/gpu.py) for tensorflow, pytorch, etc.
+* [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
+i.e. creating client connection in Python code
+* [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
+i.e. using the above ssh function to copy files from/to some remote machine
+
+### MLFlow
+
+* 
+
+### Tensorflow
 
 Almost all Tensorflow snippets I have here are provided inside the [```tf```](/ml_tidbits/tf) directory. The files I 
 have are as follows:
@@ -33,24 +69,3 @@ with ```.fit``` function
     *  
 * [```models.py```](/ml_tidbits/tf/models.py) contains a collection of utils for model 
 loading/modifying/customizing/converting etc.
-
-## MLFlow
-
-
-
-## Docker(-Compose)
-
-* [SSL w. certbot, nginx, & docker-compose](/ml_eng_tutorials/certbot.md)
-
-## Jupyter / Colab
-
-
-
-## Misc.
-
-And lastly, here's a bunch of useful snippets that don't fit anywhere else
-* [programmatic GPU config & customization](ml_tidbits/gpu.py) for tensorflow, pytorch, etc.
-* [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
-i.e. creating client connection in Python code
-* [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
-i.e. using the above ssh function to copy files from/to some remote machine
