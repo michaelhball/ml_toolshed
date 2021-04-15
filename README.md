@@ -29,9 +29,17 @@ I returned to repeat a particular task. This repository is first and foremost a 
 but it's one I keep clean in the hopes that you'll find ssomething useful here too.
 
 The files in this project are not well organized, so this README should be used as index and 
-access point from which to access all files. The sections below are ordered alphabetically. 
+access point from which to access all files. The sections below are ordered alphabetically.
 
-## AWS
+## The Featured Tools
+
+* [Tensorflow Serving](/tutorials/tf_serving.md) (& how to use it for _real_ production settings, not 
+Medium-article production).
+* 
+
+## The Full Shed
+
+### AWS
 
 The following notes are my attempt to write practical high-signal documentation for processes 
 that usually require me to click through >5 pages of AWS docs. There are 7' (short) and LP (long) 
@@ -72,15 +80,18 @@ i.e. using the above ssh function to copy files from/to some remote machine
 
 Almost all Tensorflow snippets I have here are provided inside the [```tf```](/code/tf) directory. The files I 
 have are as follows:
-* [```callbacks.py```](code/tf/callbacks.py) contains a collection of training callbacks for use 
-with ```.fit``` function
-    * [RestoreBestModel](https://github.com/michaelhball/ml_tidbits/blob/0450bc2d9830a1846cdaddf992ca4d74c3c62604/ml_tidbits/tf/callbacks.py#L4-L26)
-    *  
-* [```models.py```](/code/tf/models.py) contains a collection of utils for model 
-loading/modifying/customizing/converting etc.
-* [Tensorflow Serving Tutorial](/tutorials/tf_serving.md)
+
+* Tutorials
+    * [Tensorflow Serving](/tutorials/tf_serving.md)
+    * [Tensorflow Model Formats](/tutorials/tf_model_formats.md) (COMING SOON)
+* Code (most of which is referenced by the tutorials)
+    * [```callbacks.py```](code/tf/callbacks.py) contains a collection of training callbacks for use 
+    with ```.fit``` function
+        * [RestoreBestModel](https://github.com/michaelhball/ml_tidbits/blob/0450bc2d9830a1846cdaddf992ca4d74c3c62604/ml_tidbits/tf/callbacks.py#L4-L26)  
+    * [```models.py```](/code/tf/models.py) contains a collection of utils for model 
+    loading/modifying/customizing/converting etc.
     * [```serving_models.py```](/code/tf/serving_models.py)
-    * [```serving_predictions.py```](/code/tf/serving_predictions.py) contains code for 
-    requesting predictions from a TF-serving model server (server setup instructions above)
+    * [```serving_predictions.py```](/code/tf/serving_predictions.py) contains code for getting predictions 
+    from a tensorflow serving ModelServer
         * [```format_grpc_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L9-L41)
         * [```send_prediction_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L44-L83)
