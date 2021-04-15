@@ -78,3 +78,9 @@ with ```.fit``` function
     *  
 * [```models.py```](/code/tf/models.py) contains a collection of utils for model 
 loading/modifying/customizing/converting etc.
+* [Tensorflow Serving Tutorial](/tutorials/tf_serving.md)
+    * [```serving_models.py```](/code/tf/serving_models.py)
+    * [```serving_predictions.py```](/code/tf/serving_predictions.py) contains code for 
+    requesting predictions from a TF-serving model server (server setup instructions above)
+        * [```format_grpc_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L9-L41)
+        * [```send_prediction_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L44-L83)
