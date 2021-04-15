@@ -32,7 +32,7 @@ def format_grpc_request(model_name, model_version, model_signatures, signature_n
 
         for k, v in model_spec_inputs.items():
             tf_input = np.array(grpc_inputs[k])
-            assert tf_input.shape[1:] == tuple(v['shape'][1:])  # make sure inputs are same dim as model_spec
+            assert tf_input.shape[1:] == tuple(v['shape'][1:])                  # make sure inputs dim == model_spec
             tensor_proto = make_tensor_proto(tf_input, shape=tf_input.shape)
             tf_request.inputs[k].CopyFrom(tensor_proto)
         return tf_request

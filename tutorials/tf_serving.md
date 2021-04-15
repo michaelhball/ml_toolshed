@@ -14,20 +14,20 @@ Docker, it lends itself easily to scaling. I also include a brief snipper [here]
 incorporate TF serving into a more complex docker-compose setup. The [7'](#7') version demonstrates how to run a non-optimized model server on the CPU, while the steps required for 1) 
 building a system optimized server, and 2) using GPUs are outlined in the [LP](#lp) version.
 
-## Table of contents
+## :books: Table of contents
 
-* [7'](#7')
+* [7'](#:musical_note:-7')
 * [LP](#LP)
-    * [Building your Docker image]($1.-building-your-docker-image)
-    * [SavedModels]($2.-creating-a-savedmodel-servable)
-    * [Config]($3.-config)
-    * [Running the server]($4.-running-the-server)
-    * [Using the server]($5.-using-the-server)
-    * [Docker-Compose](6.-docker-compose)
+    * [Building your Docker image]($1-building-your-docker-image)
+    * [SavedModels]($2-creating-a-savedmodel-servable)
+    * [Config]($3-config)
+    * [Running the server]($4-running-the-server)
+    * [Using the server]($5-using-the-server)
+    * [Docker-Compose](6-docker-compose)
   
 --- 
 
-## 7'
+## :musical_note: 7'
 
 1. Run ```$ docker pull tensorflow/serving``` to pull the base docker image 
 2. Upload models (in TF [SavedModel](https://www.tensorflow.org/guide/saved_model) format) to S3 using 
@@ -85,7 +85,7 @@ the following structure.
 5. Requests can be made using either the gRPC (8500) or REST (8900) endpoints. Example code for sending 
 data to a model server is provided in [```serving_predictions.py```](/code/tf/serving_prediction.py)
 
-## LP
+## :musical_score: LP
 
 ### 1. Building your docker image
 
@@ -148,21 +148,60 @@ instruction sets (to resolve the error message listed above) you would run
 
 ### 2. Creating a SavedModel [servable](https://www.tensorflow.org/tfx/serving/architecture#servables) 
 
-Please skip  this section if you now how to save a Tensorflow model as a SavedModel.
+Please skip  this section if you know how to save a Tensorflow model as a SavedModel and upload it to S3 
+(or wherever your models will be stored).
 
-To use the TF serving ModelServer, you first need to save your models in [SavedModel](https://www.tensorflow.org/guide/saved_model), 
+To use the Tensorflow ModelServer, you first need to save your models in [SavedModel](https://www.tensorflow.org/guide/saved_model), 
 format (basically a low-level representation of a complete Tensorflow program that _does not_ require the original model 
-building code in order to run). As with all things TF, there are many confusing and conflicting APIs for 
-saving models in this format. Complete documentation for using the SavedModel format is provided in  
-[this tutorial](/tutorials/tf_saved_model.md), but is partially reproduced here in the interest of making 
-this tutorial complete in one document.
+building code in order to run). As with all things Tensorflow, there are many confusing and conflicting APIs for 
+saving models in said format.
 
-... CODE HERE + INSTRUCTIONS FOR SAVING, SIGNATURES, MODEL_SPEC, etc.
+In this section I will just give a brief outline demonstrating how to save a model in SavedModel format and 
+upload it to S3. For an in-depth discussion of the SavedModel format, the breadth of available APIs, 
+converting between model formats, and optimizing models for production, please refer to my other 
+tutorial on [Tensorflow model formats](/tutorials/tf_saved_model.md) and the supporting code in 
+[serving_models.py](/code/tf/serving_models.py)
 
-A SavedModel is  a 'dictionary containing serialized signatures and the state needed to run them, 
-including variable values and vocabularies.' Refer [here](https://www.tensorflow.org/guide/saved_model#the_savedmodel_format_on_disk) 
-for a discussion of the different files that make up a SavedModel, but in simple terms it should be noted that 
-a SavedModel is a directory, not a single file.
+Imagine you have a simple tensorflow model as outlined in the snippet below (though this works equally 
+for complex custom models), then saving in SavedModel format is as easy as the one line command.
+
+```python
+import numpy as np
+import tensorflow as tf
+
+from tensorflow import keras as K
+from tensorflow.keras.models import Sequential
+
+
+
+# imagine you have the following simple model (the saving is identical for real-life use cases)
+inputs = K.Input(shape=(32,))
+outputs = K.layers.Dense(1)(inputs)
+model = K.Model(inputs, outputs)
+model.compile(optimizer="adam", loss="mean_squared_error")
+model.fit(np.random.random((128, 32)), np.random.random((128, 1)))
+
+# method 1
+model.save('my_model')
+
+# method 2 
+save_dir = '~/models'
+tf.saved_model.save(model, save_dir)
+```
+
+The [first method](https://www.tensorflow.org/guide/keras/save_and_serialize) is the default high-level saving 
+mechanism for Keras models. I recommend to always use the [second function](https://www.tensorflow.org/api_docs/python/tf/saved_model/save), 
+as this provides far greater flexibility and control. For example, the ```saved_model.save()``` function takes an 
+optional ```signatures``` argument that controls which methods in your model object will be exposed to 
+programs using your model (i.e. the Tensorflow ModelServer).
+
+The result of saving your model in this format is a directory containing ```saved_model.pb``` (storing model 
+architecture, training configuration, optimizer losses, etc.), ```variables``` (storing the weights), and 
+```assets``` (optionally storing extra files needed by more complex Tensorflow graphs).     
+
+
+
+Once again, please refer [here](/tutorials/tf_saved_model.md) for my in-depth discussion of the SavedModel format.
 
 Lastly, SavedModel file paths should follow a convention of ```<model_name>/<model_version>/...```, where model 
 versions start at 0 and increment.
@@ -298,7 +337,7 @@ requesting predictions. More on this [below](#6.-docker-compose)).
 
 It's time for the big moment! Finally we can run the server. The command here is almost identical to that 
 used in the [7'](#7') version, but here we'll discuss in detail each argument (and add a few more). Assuming you 
-have set up config files outlined in the [previous](#3.-config) section, the command we'll use to run 
+have set up config files outlined in the [previous](#3-config) section, the command we'll use to run 
 the server is:
 ```
 $ docker run 
@@ -338,7 +377,7 @@ CPU-optimized image we creating in section [1](#1.-building-your-docker-image).
 config file
 * ```--monitoring_config_file="s3://bucket_name/configs/monitoring.config"``` points the server to your 
 monitoring config file
-* ```--enable_batching``` allows the server to batch requests (outlined in detail [above](#3.-config))
+* ```--enable_batching``` allows the server to batch requests (outlined in detail [above](#3-config))
 * ```--batching_parameters_file="s3://bucket_name/configs/batching.config"``` is needed in addition to 
 the above command to allow the server to batch requests according to your config
 * ```--model_config_file_poll_wait_seconds=216000``` specifies how often TF should check whether your 
@@ -391,7 +430,7 @@ You can refer [here](https://cloud.google.com/blog/products/api-management/under
 and [here](https://medium.com/@avidaneran/tensorflow-serving-rest-vs-grpc-e8cef9d4ff62) for two 
 investigations of the performance differences.
 
-I have included two complete and general functions in [```serving_predictions```](/code/tf/serving_prediction.py) that 
+I have included two complete and general functions in [```serving_predictions.py```](/code/tf/serving_prediction.py) that 
 can be used to send requests to any model with any input structure & data type requirements. I use this 
 function verbatim in the vast majority of my projects. The request structure is slightly more complex 
 than that required of the REST endpoint, though worth it 1000x over for the performance increase.
