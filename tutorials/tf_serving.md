@@ -1,5 +1,8 @@
 # Tensorflow Serving
 
+// EMPHASIZE HERE THAT MOST TUTORIALS ARE SHIT, AND DON'T GET GET THE DEEPEST PARTS OF WHAT THE 
+REQUIREMENTS ARE FOR DEPLOYING SOMETHING IN PRODUCTION
+
 Despite the growing popularity of Pytorch (and for good reason), Tensorflow Serving is still 
 my go to solution for quickly achieving production-grade model serving.  The Tensorflow website claims that that tf-serving
 'makes it easy to deploy new algorithms and experiments, while keeping the same server architecture and APIs,' 
@@ -161,18 +164,140 @@ including variable values and vocabularies.' Refer [here](https://www.tensorflow
 for a discussion of the different files that make up a SavedModel, but in simple terms it should be noted that 
 a SavedModel is a directory, not a single file.
 
-Lastly, SavedModel file paths follow a convention of ```<model_name>/<model_version>/...```, where model 
+Lastly, SavedModel file paths should follow a convention of ```<model_name>/<model_version>/...```, where model 
 versions start at 0 and increment.
+
+#### Uploading SavedModels to S3
+
+It is by no means a requirement to store your models in S3, but it's a pretty great system, allowing you 
+to easily disentangle the deployment of new models from the deployment of new application code, with no 
+downtime. Of course, other cloud providers work too. AWS is just what I use, so that's what I'lll outline 
+here. 
 
 ### 3. Config
 
-https://www.tensorflow.org/tfx/serving/serving_config
+This section refers to the various ways that the ModelServer can be customized, in many cases to take it 
+to the level required for a production system. A complete guide to all possible configuration options can be 
+found [here](https://www.tensorflow.org/tfx/serving/serving_config), but in this section I will point out and 
+explain a few that I think are most useful.
 
+My view is that the first type of config file (specifying the details of your models to serve) should be considered
+essential, but the other two are optional and depend on your use case.  
+
+#### Model Config
+
+The quickest way to specify which models your server should use is via the ```--model_name``` and ```--model_base_path```
+flags, but I _always_ opt to spend the few seconds extra it takes to create a Model Server config file. Using a 
+config file allows you to
+1. serve multiple types of models at a time with low overhead on your part
+2. version your models and deploy a new version with _no_ downtime (while still being able to use the old version) 
+
+Using a model config file gives you the extensibility needed to change any config settings as your needs develop, all while 
+keeping the server live. 
+
+The config file itself is a [ModelServerConfig protocol buffer](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/config/model_server_config.proto#L76),
+but you don't really have to worry about that. This is how I structure my ```models.config``` file _every_ time
+
+```
+model_config_list: {
+    config: {
+        name: <model_1_name>
+        base_path: "s3://<bucket_name>/models/<model_1_name>"
+        model_platform: "tensorflow"
+        model_version_policy: {
+            specific: {
+                versions: 0
+                versions: 1
+                versions: 2
+            }
+        }
+        version_labels: {
+            key: 'retiring'
+            value: 0
+        }
+        version_labels: {
+            key: 'live'
+            value: 1
+        }
+        version_labels: {
+            key: 'test'
+            value: 2
+        }
+    }
+    config: {
+        name: <model_2_name>
+        base_path: "s3://<bucket_name>/models/<model_2_name>"
+        model_platform: "tensorflow"
+        model_version_policy: {
+            specific {
+                versions: 0
+            }
+        }
+    }
+}
+``` 
+
+It is possible to specify ```all: {}``` for the ```model_version_policy``` rather than writing out versions 
+manually, but I recommend against it. The method above is better for two reasons:
+1. it's easy to use the config file as a reference to understand exactly which models the server is serving 
+at any given time,
+2. it prevents any issues with the server loading new models as they added (when using a config file 
+specifying all versions, I have frequently run into issues where the server does not automatically pull 
+new models, inevitably requiring either a reboot or a 
+[manual request](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/model_service.proto#L22) 
+for reloading models).
+
+In addition, the config file above is just a text file that in my case sits in S3. So it's easy to build 
+into the application code the logic that automatically turns the ```test``` into the ```live``` model and 
+the ```live``` into the ```retiring``` (when some criteria is met).
+
+The commands needed to tell the server to use this config file are outlined in the [next section](#4.-running-the-server).  
+
+#### Batching Config
+
+In order to improve the performance of the ModelServer, you'll probably want to configure batching (batching in this 
+case refers to the server grouping together 'multiple inference requests it receives from clients and process(ing) 
+them in a batch'<sup>[1](https://github.com/tensorflow/serving/issues/882)</sup>). So if your application 
+won't be sending any parallel client requests, you can safely skip this section. You should still perform 
+client side batching as normal, meaning that each request to the server contains a batch of input data. 
+
+If your application _will_ involve the model server handling requests in parallel, you will already see a 
+benefit from enabling the default batching settings (the flag for which is outlined in 
+section [4.](#4.-running-the-server) below). That being said, it is possible to optimize the performance 
+beyond the default, though the optimization process is more of an art than a science, and very system 
+dependent. As this article is focused on a CPU-optimized TF-serving setup, here is the  standard 
+```batching.config``` file I use for a [CPU setup](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/batching/README.md#cpu-only-one-approach).
+
+```
+batch_timeout_micros: { value: 0 },
+max_batch_size: { value: 128 },
+max_enqueued_batches: { value: 1000000 },
+num_batch_threads: { value: 8},
+```
+ 
+If you're so inclined, you can refer [here](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/batching/README.md) 
+for a more in-depth look at how batching works under the hood.
+
+#### Monitoring Config
+
+The last type of config file you can specify is a monitoring config file allowing you to better understand of the 
+health of your model server. The ```monitoring.config``` file I use is
+ 
+```
+prometheus_config: {
+    enable: true,
+    path: "/monitoring/prometheus/metrics"
+}
+```
+
+which exposes metrics at ```http://<host_name>:8501/monitoring/prometheus/metrics``` (though you have to 
+expose the REST endpoint to access these logs, even if you only want to use the gRPC endpoint for 
+requesting predictions. More on this [below](#6.-docker-compose)).
 
 ### 4. Running the server
 
 It's time for the big moment! Finally we can run the server. The command here is almost identical to that 
-used in the [7'](#7') version, but here we'll dicuss in detail each argument (and add a few more). Assuming you 
+used in the [7'](#7') version, but here we'll discuss in detail each argument (and add a few more). Assuming you 
 have set up config files outlined in the [previous](#3.-config) section, the command we'll use to run 
 the server is:
 ```
@@ -376,9 +501,6 @@ in [many ways](https://docs.docker.com/compose/environment-variables/)).
 
 ---
 
-
-    
-- uploading models to S3
 
 
 https://blog.tensorflow.org/2021/03/a-tour-of-savedmodel-signatures.html
