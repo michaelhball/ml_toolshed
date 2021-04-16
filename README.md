@@ -76,7 +76,8 @@ i.e. using the above ssh function to copy files from/to some remote machine
 
 * 
 
-<img align="right" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/tf.png">
+<img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/tf.png">
+
 ## Tensorflow
 
 Almost all Tensorflow snippets I have here are provided inside the [```tf```](/code/tf) directory. The files I 
