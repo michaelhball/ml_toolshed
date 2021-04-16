@@ -50,9 +50,13 @@ further reading.
 * How to [setup an EC2 instance](/tutorials/ec2_setup.md)
 * How to setup the [Cloudwatch Agent for EC2](/tutorials/cloudwatch.md)
 
+
+<img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/gitlab.png">
+
 ## CI / CD / IAC
 
 * Deploy to EC2 w. Gitlab CI (incl. Gitlab Container Registry, docker-compose)
+
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/docker.png">
 
@@ -60,9 +64,13 @@ further reading.
 
 * [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
 
+
+<img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/jupyter.png">
+
 ## Jupyter / Google Colab
 
 *  
+
 
 ## Misc.
 
@@ -74,9 +82,12 @@ i.e. creating client connection in Python code
 * [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
 i.e. using the above ssh function to copy files from/to some remote machine
 
+
+
 ## MLFlow
 
 * 
+
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/tf.png">
 
