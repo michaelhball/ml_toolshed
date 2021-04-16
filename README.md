@@ -32,14 +32,11 @@ The files in this project are not well organized, so this README should be used 
 access point from which to access all files. The sections below are ordered alphabetically.
 
 
-## The Featured Tools
+## Featured Tutorial
 
 * [Tensorflow Serving](/tutorials/tf_serving.md) (& how to use it for _real_ production settings, not 
 Medium-article production).
-* 
 
-
-## The Full Shed
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/aws.png">
 
@@ -60,6 +57,7 @@ further reading.
 ## CI / CD / IAC
 
 * Deploy to EC2 w. Gitlab CI (incl. Gitlab Container Registry, docker-compose)
+* 
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/docker.png">
@@ -67,13 +65,15 @@ further reading.
 ## Docker(-Compose)
 
 * [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
+* 
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/jupyter.png">
 
 ## Jupyter / Google Colab
 
-*  
+*
+*   
 
 
 ## Misc.
@@ -90,7 +90,8 @@ i.e. using the above ssh function to copy files from/to some remote machine
 
 ## MLFlow
 
-* 
+*
+*  
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/tf.png">
