@@ -40,7 +40,7 @@ Medium-article production).
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/aws.png">
 
-### AWS
+## AWS
 
 The following notes are my attempt to write practical high-signal documentation for processes 
 that usually require me to click through >5 pages of AWS docs. There are 7' (short) and LP (long) 
