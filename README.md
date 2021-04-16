@@ -54,6 +54,8 @@ further reading.
 
 * Deploy to EC2 w. Gitlab CI (incl. Gitlab Container Registry, docker-compose)
 
+<img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/docker.png">
+
 ## Docker(-Compose)
 
 * [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
