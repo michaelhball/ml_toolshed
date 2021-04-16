@@ -31,13 +31,17 @@ but it's one I keep clean in the hopes that you'll find ssomething useful here t
 The files in this project are not well organized, so this README should be used as index and 
 access point from which to access all files. The sections below are ordered alphabetically.
 
+
 ## The Featured Tools
 
 * [Tensorflow Serving](/tutorials/tf_serving.md) (& how to use it for _real_ production settings, not 
 Medium-article production).
 * 
 
+
 ## The Full Shed
+
+<img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/aws.png">
 
 ### AWS
 
