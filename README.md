@@ -99,8 +99,9 @@ sections of the README, as well as a few Docker-specific tutorials
 This contains a bunch of notebook specific functions (or functions I generally use in notebook form, e.g. 
 [stylegan.ipynb](/notebooks/stylegan.ipynb))
 
-* [images.ipynb](/notebooks/images.ipynb)
-* [stylegan.ipynb](/notebooks/stylegan.ipynb)
+* [images.ipynb](/notebooks/images.ipynb) contains helper functions for displaying & working with images
+* [stylegan.ipynb](/notebooks/stylegan.ipynb) contains StyleGAN2 helper functions; I mostly use these w. 
+Google Colab StyleGAN implementations
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/mlflow.png">
