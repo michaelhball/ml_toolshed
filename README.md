@@ -13,30 +13,48 @@
 </h3>
 
 This is my personal wiki for machine learning & engineering related topics: a living 
-document of all code snippets, tutorials, step-by-step processes, and config files I recurringly 
-find useful. It's also the way I keep my cool. 
+document of all code snippets, tutorials, step-by-step processes, and config files I recurrently 
+find useful. It's also how I keep my cool.
+
+--- 
 
 ## Overview
 
-The project is not intended to be 'run', nor do the various files fit together or 
-function as a cohesive project. Everything just contains useful pieces of code or insight 
-that I find myself using again and again. 
+The project is not intended to be 'run', nor do the various files fit together or function as a 
+cohesive project. Everything in this repository is either a useful insight, piece of code, 
+or config file that I find myself using again and again. The tutorials section is my effort to 
+organise these snippets into more cohesive wholes.
 
 I don't claim that anything in this repository represents my own insight and ability. Everything is 
-merely a product of my having read countless blogs/forums/implementations, customized things as 
-needed for myself, and decided that no one place captured the note I wanted to have next time 
-I returned to repeat a particular task. This repository is first and foremost a tool-shed for myself, 
-but it's one I keep clean in the hopes that you'll find ssomething useful here too.
+a product of my having read countless blogs/forums/implementations, customized things as 
+needed for myself, and there was no one place I would be able to go to get all the information I need 
+the next I want to perform a particular task. This repository is first and foremost a toolshed for myself, 
+but I try to keep it clean in the hope that you'll find something useful here too. 
 
-The files in this project are not well organized, so this README should be used as index and 
-access point from which to access all files. The sections below are ordered alphabetically.
+This README should be used as the index and entry point into everything the Toolshed has to offer.
+
+---
+
+## Table of Contents
+
+* [Featured](#-featured-tutorials)
+* [AWS](#-aws)
+* [CI, CD, IAC](#ci,-cd,-iac)
+* [Docker & Docker-Compose](#docker-&-docker-compose)
+* [Jupyter & Colab](#jupyter-&-colab)
+* [MLFlow](#mlflow)
+* [Tensorflow](#tensorflow)
+* [Utilities](#utilities)
+
+--- 
+
+## Featured Tutorials
+
+* [Tensorflow Serving](/tutorials/tf_serving.md) and how to use it for _real_ production settings.
+* [](/tutorials/certbot.md)
 
 
-## Featured Tutorial
-
-* [Tensorflow Serving](/tutorials/tf_serving.md) (& how to use it for _real_ production settings, not 
-Medium-article production).
-
+--- 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/aws.png">
 
@@ -54,39 +72,38 @@ further reading.
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/gitlab.png">
 
-## CI / CD / IAC
+## CI, CD, IAC
 
-* Deploy to EC2 w. Gitlab CI (incl. Gitlab Container Registry, docker-compose)
-* 
+* Deploy to EC2 w. Gitlab CI & Docker
+* Blue-Green Deployment with Terraform & AWS \[Coming Soon\]
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/docker.png">
 
-## Docker(-Compose)
+## Docker & Docker-Compose
 
-* [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
-* 
+This section primarily contains the Dockerfiles and docker-compose yaml files used by tutorials in other 
+sections of the README, as well as a few Docker-specific tutorials
+
+* Tutorials
+    * [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
+* Files
+    * [docker-compose.tf.yml](/code/docker/docker-compose.tf.yml) (used by the 
+    [Tensorflow Serving](/tutorials/tf_serving.md) tutorial).
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/jupyter.png">
 
-## Jupyter / Google Colab
+## Jupyter & Colab
 
-*
-*   
+This contains a bunch of notebook specific functions (or functions I generally use in notebook form, e.g. 
+[stylegan.ipynb](/notebooks/stylegan.ipynb))
 
-
-## Misc.
-
-Some more engineeringy snippets that don't fit elsewhere
-
-* [programmatic GPU config & customization](code/gpu.py) for tensorflow & pytorch.
-* [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
-i.e. creating client connection in Python code
-* [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
-i.e. using the above ssh function to copy files from/to some remote machine
+* [images.ipynb](/notebooks/images.ipynb)
+* [stylegan.ipynb](/notebooks/stylegan.ipynb)
 
 
+<img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/mlflow.png">
 
 ## MLFlow
 
@@ -98,8 +115,9 @@ i.e. using the above ssh function to copy files from/to some remote machine
 
 ## Tensorflow
 
-Almost all Tensorflow snippets I have here are provided inside the [```tf```](/code/tf) directory. The files I 
-have are as follows:
+This section contains a number of code snippets & tutorials related to Tensorflow and the 
+Tensorflow-in-production ecosystem. All code snippets are available inside the [```tf```](/code/tf) directory, 
+though most of these are referenced in at least one tutorial
 
 * Tutorials
     * [Tensorflow Serving](/tutorials/tf_serving.md)
@@ -115,3 +133,14 @@ have are as follows:
     from a tensorflow serving ModelServer
         * [```format_grpc_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L9-L41)
         * [```send_prediction_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L44-L83)
+
+
+## Utilities
+
+Here are some utility functions that don't fit anywhere else  
+
+* [programmatic GPU config & customization](code/gpu.py) for tensorflow & pytorch.
+* [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 
+i.e. creating client connection in Python code
+* [programmatic scp](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L24-L49), 
+i.e. using the above ssh function to copy files from/to some remote machine
