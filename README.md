@@ -108,8 +108,8 @@ Google Colab StyleGAN implementations
 
 ## MLFlow
 
-*
-*  
+* MLFlow at Scale \[Coming Soon\] :building_construction:
+* [MyMLFlowClient](/code/mlflow.py) contains the client I use for _all_ programmatic MLFlow interaction
 
 
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/tf.png">
@@ -122,7 +122,7 @@ though most of these are referenced in at least one tutorial
 
 * Tutorials
     * [Tensorflow Serving](/tutorials/tf_serving.md)
-    * Tensorflow Model Formats \[COMING SOON\]
+    * Tensorflow Model Formats \[Coming Soon\] :building_construction:
 * Code (most of which is referenced by the tutorials)
     * [```callbacks.py```](code/tf/callbacks.py) contains a collection of training callbacks for use 
     with ```.fit``` function
