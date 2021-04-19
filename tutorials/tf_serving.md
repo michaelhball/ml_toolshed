@@ -14,7 +14,7 @@ Docker, it lends itself easily to scaling. I also include a brief snipper [here]
 incorporate TF serving into a more complex docker-compose setup. The [7'](#7') version demonstrates how to run a non-optimized model server on the CPU, while the steps required for 1) 
 building a system optimized server, and 2) using GPUs are outlined in the [LP](#lp) version.
 
-## :books: Table of contents
+## :books: Table of Contents
 
 * [7'](#:musical_note:-7')
 * [LP](#LP)
@@ -50,8 +50,8 @@ the following structure.
         │
        ... 
     ```
-   For instructions on saving models in this format, refer to [this tutorial](/tutorials/tf_saved_model.md) 
-   and the functions in [```serving_models.py```](/code/tf/serving_models.py). 
+   For instructions on saving models in this format, refer to [this tutorial](/tutorials/tf_model_formats.md) 
+   and the functions in [```model_formats.py```](/code/tf/model_formats.py). 
 3. Create a config ```file models.config``` and upload to S3, e.g. at 
 ```s3://bucket_name/configs/models.config```
     ```
@@ -159,8 +159,8 @@ saving models in said format.
 In this section I will just give a brief outline demonstrating how to save a model in SavedModel format and 
 upload it to S3. For an in-depth discussion of the SavedModel format, the breadth of available APIs, 
 converting between model formats, and optimizing models for production, please refer to my other 
-tutorial on [Tensorflow model formats](/tutorials/tf_saved_model.md) and the supporting code in 
-[serving_models.py](/code/tf/serving_models.py)
+tutorial on [Tensorflow model formats](/tutorials/tf_model_formats.md) and the supporting code in 
+[serving_models.py](/code/tf/model_formats.py)
 
 Imagine you have a simple tensorflow model as outlined in the snippet below (though this works equally 
 for complex custom models), then saving in SavedModel format is as easy as the one line command.
@@ -201,7 +201,7 @@ architecture, training configuration, optimizer losses, etc.), ```variables``` (
 
 
 
-Once again, please refer [here](/tutorials/tf_saved_model.md) for my in-depth discussion of the SavedModel format.
+Once again, please refer [here](/tutorials/tf_model_formats.md) for my in-depth discussion of the SavedModel format.
 
 Lastly, SavedModel file paths should follow a convention of ```<model_name>/<model_version>/...```, where model 
 versions start at 0 and increment.
@@ -290,7 +290,7 @@ In addition, the config file above is just a text file that in my case sits in S
 into the application code the logic that automatically turns the ```test``` into the ```live``` model and 
 the ```live``` into the ```retiring``` (when some criteria is met).
 
-The commands needed to tell the server to use this config file are outlined in the [next section](#4.-running-the-server).  
+The commands needed to tell the server to use this config file are outlined in the [next section](#4-running-the-server).  
 
 #### Batching Config
 
@@ -302,7 +302,7 @@ client side batching as normal, meaning that each request to the server contains
 
 If your application _will_ involve the model server handling requests in parallel, you will already see a 
 benefit from enabling the default batching settings (the flag for which is outlined in 
-section [4.](#4.-running-the-server) below). That being said, it is possible to optimize the performance 
+section [4.](#4-running-the-server) below). That being said, it is possible to optimize the performance 
 beyond the default, though the optimization process is more of an art than a science, and very system 
 dependent. As this article is focused on a CPU-optimized TF-serving setup, here is the  standard 
 ```batching.config``` file I use for a [CPU setup](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/batching/README.md#cpu-only-one-approach).
@@ -331,7 +331,7 @@ prometheus_config: {
 
 which exposes metrics at ```http://<host_name>:8501/monitoring/prometheus/metrics``` (though you have to 
 expose the REST endpoint to access these logs, even if you only want to use the gRPC endpoint for 
-requesting predictions. More on this [below](#6.-docker-compose)).
+requesting predictions. More on this [below](#.-docker-compose)).
 
 ### 4. Running the server
 
@@ -372,7 +372,7 @@ for more details on these environment variables.
 [logging bug](https://github.com/tensorflow/serving/issues/789) from occurring that makes the 
 server logs unreadable.
 * ```-t tensorflow-serving-optimized``` specifies which Docker image to run, in this case the 
-CPU-optimized image we creating in section [1](#1.-building-your-docker-image).
+CPU-optimized image we creating in section [1](#1.building-your-docker-image).
 * ```--model_config_file="s3://bucket_name/configs/models.config"``` points the server to your model 
 config file
 * ```--monitoring_config_file="s3://bucket_name/configs/monitoring.config"``` points the server to your 
@@ -436,7 +436,7 @@ function verbatim in the vast majority of my projects. The request structure is 
 than that required of the REST endpoint, though worth it 1000x over for the performance increase.
 
 One thing that is very importaat to my deployment flow is model signatures. The whats and hows of these
-were outlined in the section on SavedModels [above](#2.-creating-a-savedmodel-servable), but it's 
+were outlined in the section on SavedModels [above](#2-creating-a-savedmodel-servable), but it's 
 important to note that the function I use to send prediction requests requires 1) these model 
 signatures at prediction time, and 2) the data to be formatted in such a way that it corresponds 
 to the model signature. Each time a model is uploaded to the server, I save its signatures to a 
@@ -484,7 +484,7 @@ output_dict = stub.Predict(grpc_request).outputs
 ### 6. Docker-Compose
 
 The snippet below demonstrates how to format the ```docker-compose.yml``` file to run 
-the same server as in section [4](#4.-running-the-server) using [docker-compose](https://docs.docker.com/compose/)
+the same server as in section [4](#4-running-the-server) using [docker-compose](https://docs.docker.com/compose/)
 ```yaml
 version: '3'
 

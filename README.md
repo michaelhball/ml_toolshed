@@ -51,7 +51,6 @@ This README should be used as the index and entry point into everything the Tool
 ## Featured Tutorials
 
 * [Tensorflow Serving](/tutorials/tf_serving.md) and how to use it for _real_ production settings.
-* [](/tutorials/certbot.md)
 
 --- 
 
@@ -75,8 +74,11 @@ further reading.
 
 ## CI, CD, IAC
 
-* [EC2 deployment w. Gitlab CI & Docker](/tutorials/gitlab_ci.md)
-* Blue-Green Deployment with Terraform & AWS \[Coming Soon\]
+This section contains general tips on deployment and automated infrastructure setup, and some specific 
+example walkthroughs of specific, real-life production pipelines.
+
+* EC2 deployment w. Gitlab CI & Docker :building_construction: \[Coming Soon\] :building_construction: 
+* Blue-Green Deployment with Terraform & AWS :building_construction: \[Coming Soon\] :building_construction:
 
 
 <br /><br />
@@ -87,8 +89,7 @@ further reading.
 This section primarily contains the Dockerfiles and docker-compose yaml files used by tutorials in other 
 sections of the README, as well as a few Docker-specific tutorials
 
-* Tutorials
-    * [SSL w. certbot, nginx, & docker-compose](/tutorials/certbot.md)
+* SSL w. certbot, nginx, & docker-compose :building_construction: \[Coming Soon\] :building_construction:
 * Files
     * [docker-compose.tf.yml](/code/docker/docker-compose.tf.yml) (used by the 
     [Tensorflow Serving](/tutorials/tf_serving.md) tutorial).
@@ -99,10 +100,9 @@ sections of the README, as well as a few Docker-specific tutorials
 
 ## Jupyter & Colab
 
-This contains a bunch of notebook specific functions (or functions I generally use in notebook form, e.g. 
-[stylegan.ipynb](/notebooks/stylegan.ipynb))
+This contains a bunch of notebook specific functions or functions I use with Colab.
 
-* [images.ipynb](/notebooks/images.ipynb) contains helper functions for displaying & working with images
+* [images.ipynb](/notebooks/images.ipynb) contains helper functions for displaying & manipulating images
 * [stylegan.ipynb](/notebooks/stylegan.ipynb) contains StyleGAN2 helper functions; I mostly use these w. 
 Google Colab StyleGAN implementations
 
@@ -112,7 +112,7 @@ Google Colab StyleGAN implementations
 
 ## MLFlow
 
-* MLFlow at Scale Tutorial :building_construction: \[Coming Soon\] :building_construction:
+* MLFlow in Production :building_construction: \[Coming Soon\] :building_construction:
 * [MyMLFlowClient](/code/mlflow.py) contains the client I use for _all_ programmatic MLFlow interaction
 
 
@@ -126,7 +126,7 @@ Tensorflow-in-production ecosystem. All code snippets are available inside the [
 though most of these are referenced in at least one tutorial
 
 * Tutorials
-    * [Tensorflow Serving](/tutorials/tf_serving.md)
+    * [Tensorflow Serving](/tutorials/tf_serving.md) (for _real_ production workflows)
     * Tensorflow Model Formats \[Coming Soon\] :building_construction:
 * Code (most of which is referenced by the tutorials)
     * [```callbacks.py```](code/tf/callbacks.py) contains a collection of training callbacks for use 
@@ -142,9 +142,9 @@ though most of these are referenced in at least one tutorial
 
 
 <br /><br />
-## Utilities
+## :toolbox: Utilities
 
-Here are some utility functions that don't fit anywhere else  
+And here are some utility functions that don't fit anywhere else  
 
 * [programmatic GPU config & customization](code/gpu.py) for tensorflow & pytorch.
 * [programmatic ssh](https://github.com/michaelhball/ml_tidbits/blob/9f730e23efc31a649af0371429a7f963b01360a1/ml_tidbits/utils.py#L5-L21), 

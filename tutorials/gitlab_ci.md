@@ -1,4 +1,3 @@
-
 # Deploying w. Docker & Gitlab CI
 
 ```yaml
