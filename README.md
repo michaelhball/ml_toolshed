@@ -18,7 +18,7 @@ find useful. It's also how I keep my cool.
 
 --- 
 
-## Overview
+## :owl: Overview
 
 The project is not intended to be 'run', nor do the various files fit together or function as a 
 cohesive project. Everything in this repository is either a useful insight, piece of code, 
@@ -35,7 +35,7 @@ This README should be used as the index and entry point into everything the Tool
 
 ---
 
-## Table of Contents
+## :book: Table of Contents
 
 * [Featured](#-featured-tutorials)
 * [AWS](#-aws)
@@ -53,9 +53,9 @@ This README should be used as the index and entry point into everything the Tool
 * [Tensorflow Serving](/tutorials/tf_serving.md) and how to use it for _real_ production settings.
 * [](/tutorials/certbot.md)
 
-
 --- 
 
+<br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/aws.png">
 
 ## AWS
@@ -70,6 +70,7 @@ further reading.
 * How to setup the [Cloudwatch Agent for EC2](/tutorials/cloudwatch.md)
 
 
+<br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/gitlab.png">
 
 ## CI, CD, IAC
@@ -78,6 +79,7 @@ further reading.
 * Blue-Green Deployment with Terraform & AWS \[Coming Soon\]
 
 
+<br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/docker.png">
 
 ## Docker & Docker-Compose
@@ -92,6 +94,7 @@ sections of the README, as well as a few Docker-specific tutorials
     [Tensorflow Serving](/tutorials/tf_serving.md) tutorial).
 
 
+<br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/jupyter.png">
 
 ## Jupyter & Colab
@@ -104,14 +107,16 @@ This contains a bunch of notebook specific functions (or functions I generally u
 Google Colab StyleGAN implementations
 
 
+<br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/mlflow.png">
 
 ## MLFlow
 
-* MLFlow at Scale \[Coming Soon\] :building_construction:
+* MLFlow at Scale Tutorial :building_construction: \[Coming Soon\] :building_construction:
 * [MyMLFlowClient](/code/mlflow.py) contains the client I use for _all_ programmatic MLFlow interaction
 
 
+<br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/tf.png">
 
 ## Tensorflow
@@ -136,6 +141,7 @@ though most of these are referenced in at least one tutorial
         * [```send_prediction_request```](https://github.com/michaelhball/ml_toolshed/blob/8848e9f3d48f732158d243c9a065695ed83fc537/code/tf/serving_prediction.py#L44-L83)
 
 
+<br /><br />
 ## Utilities
 
 Here are some utility functions that don't fit anywhere else  
