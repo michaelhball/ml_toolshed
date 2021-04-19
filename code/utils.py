@@ -27,9 +27,9 @@ def scp_files(host, username, password, remote_dir, local_dir, direction="from")
     :param host: (str) host of machine to connect to
     :param username: (str) username to use for ssh credentials
     :param password: (str) password to use for ssh credentials
-    :remote_dir: (Path) remote directory to/from which to copy files
-    :local_dir: (Path) local directory to/from which to copy files
-    :direction: (str) either 'from' or 'to' indicating which way we are copying
+    :param remote_dir: (Path) remote directory to/from which to copy files
+    :param local_dir: (Path) local directory to/from which to copy files
+    :param direction: (str) either 'from' or 'to' indicating which way we are copying
     :return True if successful, False otherwise.
     """
 
