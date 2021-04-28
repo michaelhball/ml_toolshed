@@ -27,12 +27,12 @@ the following sequence of steps is identical.
     partition is still only 8GB).
     * Run ```$ lsblk``` to see the EBS volume specifics. Here we should see that ```/dev/xvda``` has the new 
     size set in the AWS console, but that it's child partition ```/dev/xvda1``` (you root drive) only has 8GB.
-    * Run ```$ sudo growpart /dev/xvda1 1``` to resize the partition to fill its parent
+    * Run ```$ sudo growpart /dev/xvda 1``` to resize the partition to fill its parent
     * Rerun ```$ lsblk``` to make sure your partition is now the intended size.
 3. Resize the filesystem
     * If you run ```$ df -h``` again, you'll see that despite sizing the partitions correctly, the 
     filesystem is still showing 8GB. You need to resize this to fill the newly modified partition.
-    * Run ```$ sudo sudo resize2fs /dev/xvda1```, and recheck to ```$ df -h``` to make sure you changes 
+    * Run ```$ sudo resize2fs /dev/xvda1```, and recheck to ```$ df -h``` to make sure you changes 
     were applied.   
 
 Voilà! :cake:

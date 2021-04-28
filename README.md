@@ -37,11 +37,11 @@ This README should be used as the index and entry point into everything the Tool
 
 ## :book: Table of Contents
 
-* [Featured](#-featured-tutorials)
-* [AWS](#-aws)
-* [CI, CD, IAC](#ci,-cd,-iac)
-* [Docker & Docker-Compose](#docker-&-docker-compose)
-* [Jupyter & Colab](#jupyter-&-colab)
+* [Featured](#featured-tutorials)
+* [AWS](#aws)
+* [CI, CD, IAC](#ci-cd-iac)
+* [Docker & Docker-Compose](#docker-docker-compose)
+* [Jupyter & Colab](#jupyter-colab)
 * [MLFlow](#mlflow)
 * [Tensorflow](#tensorflow)
 * [Utilities](#utilities)
@@ -68,7 +68,7 @@ further reading.
 * How to [setup an EC2 instance](/tutorials/ec2_setup.md)
 * How to setup the [Cloudwatch Agent for EC2](/tutorials/cloudwatch.md)
 
-
+``
 <br /><br />
 <img align="left" height="50" src="https://github.com/michaelhball/ml_toolshed/blob/main/img/gitlab.png">
 
