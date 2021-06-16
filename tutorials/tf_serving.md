@@ -1,18 +1,17 @@
 # Tensorflow Serving
 
-// EMPHASIZE HERE THAT MOST TUTORIALS ARE SHIT, AND DON'T GET GET THE DEEPEST PARTS OF WHAT THE 
-REQUIREMENTS ARE FOR DEPLOYING SOMETHING IN PRODUCTION
-
 Despite the growing popularity of Pytorch (and for good reason), Tensorflow Serving is still 
-my go to solution for quickly achieving production-grade model serving.  The Tensorflow website claims that that tf-serving
+my go to solution for quickly achieving production-grade model serving.  The Tensorflow website claims that tf-serving
 'makes it easy to deploy new algorithms and experiments, while keeping the same server architecture and APIs,' 
 and while Tensorflow documentation shouldn't always be taken at face value, in this case it's spot on. 
 
-This tutorial is targeted at achieving a standard (but still realistic) small-scale production environment: a 
-model server running on a single machine, serving any number of models. That being said, as the server is run using 
-Docker, it lends itself easily to scaling. I also include a brief snipper [here]( demonstrating how easy it is to 
-incorporate TF serving into a more complex docker-compose setup. The [7'](#7') version demonstrates how to run a non-optimized model server on the CPU, while the steps required for 1) 
-building a system optimized server, and 2) using GPUs are outlined in the [LP](#lp) version.
+This tutorial is targeted at achieving a small-scale but realistic production environment: a model server running on a 
+single machine, serving any number of models. My biggest gripe with most tutorials out there is that they inevitable 
+ignore a couple of crucial steps needed to get something to actually work for a production use-case. The server discussed 
+here is small, but is exactly what has been used now in several previous roles. I also include a brief snippet [here] 
+demonstrating how easy it is to incorporate TF serving into a more complex docker-compose setup. The [7'](#7') version 
+demonstrates how to run a non-optimized model server on the CPU, while the steps required for 1) building a system 
+optimized server, and 2) using GPUs are outlined in the [LP](#lp) version.
 
 ## :books: Table of Contents
 
